@@ -7,6 +7,6 @@
 require('./example');
 
 // hide myAccount when page first loads
-$('#hide-myaccount').hide();
+// $('#hide-myaccount').hide();
 
 // $('#hide-signup').hide();

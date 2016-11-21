@@ -16,20 +16,20 @@ div {
 li {
   display: none;
 }
+
+.bold {
+  font-weight: bold;
+}
 // END GENERAL STYLES
 
 // START NAVBAR STYLES
 .navbar {
   background-color: $carbon;
 }
-// END NAVBAR STYLES
 
 .new-user {
   color: $sky;
   font-size: .8em;
   padding-right: 5px;
 }
-
-.bold {
-  font-weight: bold;
-}
+// END NAVBAR STYLES
