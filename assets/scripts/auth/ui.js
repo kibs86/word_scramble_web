@@ -13,9 +13,22 @@ const hideAndClearModal = (modal) => {
     });
 };
 
+// Toggles hiding and showing of items on page
+// Takes an array of selectors and toggles them all
+const toggleHideShow = (selectors) => {
+  for (let i = 0; i < selectors.length; i++) {
+    $(selectors[i]).toggle();
+  }
+};
+
+// Just used to clear the login form
+const clearForm = (selector) => {
+  $(selector).find("input,textarea,select").val('').end();
+};
+
 // If sign up is successful, let the user know
-const signUpSuccess = (data) => {
-  console.log(data);
+const signUpSuccess = () => {
+  // console.log(data);
   $('.modal-success').text("SUCCESS!");
   hideAndClearModal('#sign-up-modal');
 };
@@ -24,16 +37,16 @@ const signUpSuccess = (data) => {
 const signInSuccess = (data) => {
   store.user = data.user;
   $('#welcome-message').text("Welcome, " + store.user.email + "!");
-  $('#hide-myaccount').show();
-  $('.sign-in-form').hide();
-  console.log(data);
+  toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
+  clearForm('.sign-in-form');
+  // console.log(data);
 };
 
 // If user successfully changes their password, let user know
-const changePasswordSuccess = (data) => {
+const changePasswordSuccess = () => {
   $('.modal-success').text("SUCCESS!");
   hideAndClearModal('#change-password-modal');
-  console.log(data);
+  // console.log(data);
 };
 
 // If sign out is successful, let user know
@@ -41,6 +54,7 @@ const signOutSuccess = () => {
   $('.modal-success').text("SUCCESS!");
   $('#welcome-message').text('');
   hideAndClearModal('#sign-out-modal');
+  toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
 };
 
 // If any login functionality fails, let user know
@@ -50,6 +64,8 @@ const failure = () => {
 
 module.exports = {
   hideAndClearModal,
+  toggleHideShow,
+  clearForm,
   signUpSuccess,
   signInSuccess,
   changePasswordSuccess,
