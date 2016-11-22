@@ -1,12 +1,15 @@
 // START GENERAL STYLES
 body {
   background-color: $neutral;
-  font-family: $abel sans-serif;
+  font-family: $abel, sans-serif;
+  font-size: 1.5em;
 }
 
 h1 {
   color: $watermelon;
   font-family: $unica-one;
+  font-size: 4em;
+  padding-bottom: 30px;
 }
 
 div {
