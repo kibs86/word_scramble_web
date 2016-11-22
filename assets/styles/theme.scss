@@ -13,8 +13,8 @@ div {
   text-align: center;
 }
 
-li {
-  display: none;
+.description-list {
+  list-style-type: none;
 }
 
 .bold {
@@ -33,3 +33,13 @@ li {
   padding-right: 5px;
 }
 // END NAVBAR STYLES
+
+// START MODAL STYLES
+.asterisk {
+  color: $red;
+}
+
+.modal-success {
+  color: $green;
+}
+// END MODAL STYLES

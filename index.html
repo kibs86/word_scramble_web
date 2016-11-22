@@ -23,12 +23,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <!--<a class="navbar-brand" href="#">Brand</a>-->
+              <!-- <a class="navbar-brand" href="#">Welcome, <span id="welcome-user"> </span></a> -->
+              <p class="navbar-brand" id="welcome-message"> </p>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
+              <!-- <ul class="nav navbar-nav"> -->
                 <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
                 <!-- <li><a href="#">Link</a></li> -->
                 <!-- <li class="dropdown">
@@ -43,17 +44,17 @@
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li> -->
-              </ul>
-              <form class="navbar-form navbar-left">
-                <button type="submit" class="btn btn-default">Login</button>
+              <!-- </ul> -->
+              <form class="navbar-form navbar-left sign-in-form">
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="email">
-                  <input type="password" class="form-control" placeholder="password">
+                  <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="email">
+                  <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="password">
                 </div>
+                <button type="submit" class="btn btn-default">Login</button>
               </form>
               <form class="navbar-form navbar-right" id="hide-signup">
                 <span class="new-user"> New user? Sign Up here! </span>
-                <button type="submit" class="btn btn-default">Sign Up</button>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>
               </form>
               <ul class="nav navbar-nav navbar-right">
                 <!-- <li><p>New user? Sign Up here!</p></li>
@@ -74,6 +75,8 @@
         </nav>
         <!-- END NAV BAR -->
       </header>
+
+      <!-- START MAIN -->
       <div class="container">
         <div class="col-xs flex-xs-middle">
           <h1>Word Scramble</h1>
@@ -87,13 +90,50 @@
             between three difficulty choices:
           </p>
           <ul>
-            <li> <span class="bold"> Easy: </span> < 5 Letters</li>
-            <li> <span class="bold"> Medium: </span> 5 - 7 Letters</li>
-            <li> <span class="bold"> Hard: </span> > 8 Letters</li>
+            <li class="description-list"> <span class="bold"> Easy: </span> < 5 Letters</li>
+            <li class="description-list"> <span class="bold"> Medium: </span> 5 - 7 Letters</li>
+            <li class="description-list"> <span class="bold"> Hard: </span> > 8 Letters</li>
           </ul>
           <p> You'll have three tries to guess the word! </p>
           <p> Please sign up for a new account or login with an existing site to begin! </p>
         </div>
       </div>
+      <!-- END MAIN -->
+
+      <!-- START MODALS -->
+      <!-- START SIGN-UP MODAL -->
+      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="sign-up-modal-label">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <form class='sign-up-form'>
+                <div class="form-group">
+                  <label for="sign-up-email">Email address<span class="asterisk">*</span></label>
+                    <input type="email" name="credentials[email]" class="form-control" id="sign-up-email" placeholder="Email" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="sign-up-password">Password<span class="asterisk">*</span></label>
+                  <input type="password" name="credentials[password]" class="form-control" id="sign-up-password" placeholder="Password" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="sign-up-confirm-password">Confirm Password<span class="asterisk">*</span></label>
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" id="sign-up-confirm-password" placeholder="Confirm Password" required="required">
+                </div>
+                <div class="modal-footer">
+                  <p class="modal-success"></p>
+                  <button type="button" class="btn btn-default reset" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END SIGN-UP MODAL -->
+      <!-- END MODALS -->
     </body>
 </html>
