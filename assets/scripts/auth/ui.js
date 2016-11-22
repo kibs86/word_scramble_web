@@ -27,6 +27,13 @@ const signInSuccess = (data) => {
   console.log(data);
 };
 
+// If user successfully changes their password, let user know
+const changePasswordSuccess = (data) => {
+  $('.modal-success').text("SUCCESS!");
+  hideAndClear('#change-password-modal');
+  console.log(data);
+};
+
 // If any login functionality fails, let user know
 const failure = () => {
   $('.modal-success').text("That function failed.");
@@ -36,5 +43,6 @@ module.exports = {
   hideAndClear,
   signUpSuccess,
   signInSuccess,
+  changePasswordSuccess,
   failure,
 };

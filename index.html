@@ -62,8 +62,16 @@
                 <li class="dropdown" id="hide-myaccount">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Change Password</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">
+                        Change Password
+                      </button
+                    </li>
+                    <li>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sign-out-modal">
+                        Log Out
+                      </button
+                    </li>
                     <!-- <li><a href="#">Something else here</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Separated link</a></li> -->
@@ -134,6 +142,36 @@
         </div>
       </div>
       <!-- END SIGN-UP MODAL -->
+
+      <!-- START CHANGE PASSWORD MODAL -->
+      <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="change-password-modal-label">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form class='change-password-form'>
+                <div class="form-group">
+                  <label for="change-password-old">Old Password<span class="asterisk">*</span></label>
+                    <input type="password" name="passwords[old]" class="form-control" id="change-password-old" placeholder="Old Password" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="change-password-new">New Password<span class="asterisk">*</span></label>
+                  <input type="password" name="passwords[new]" class="form-control" id="change-password-new" placeholder="New Password" required="required">
+                </div>
+                <div class="modal-footer">
+                  <p class="modal-success"></p>
+                  <button type="button" class="btn btn-default reset" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END CHANGE PASSWORD MODAL -->
       <!-- END MODALS -->
     </body>
 </html>

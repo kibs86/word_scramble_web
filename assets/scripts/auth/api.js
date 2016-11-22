@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require('../config.js');
-// const store = require('../store.js');
+const store = require('../store.js');
 
 // Ajax request for a new user sign up
 const signUp = (data) =>
@@ -19,7 +19,19 @@ const signIn = (data) =>
     data,
   });
 
+// Ajax request for changing a password
+const changePassword = (data) =>
+  $.ajax({
+    url: config.host + '/change-password/' + store.user.id,
+    method: 'PATCH',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+  });
+
 module.exports = {
   signUp,
   signIn,
+  changePassword,
 };
