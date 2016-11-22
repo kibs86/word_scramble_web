@@ -1,6 +1,8 @@
 'use strict';
 
 const store = require('../store.js');
+const showDescriptionTemplate = require('../templates/game-description.handlebars');
+const showDifficultyTemplate = require('../templates/choose-difficulty.handlebars');
 
 // Hides and clears the login/sign up modals after a certain period of time
 // Called from below functions
@@ -39,6 +41,7 @@ const signInSuccess = (data) => {
   $('#welcome-message').text("Welcome, " + store.user.email + "!");
   toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
   clearForm('.sign-in-form');
+  $('#content').html(showDifficultyTemplate());
   // console.log(data);
 };
 
@@ -55,6 +58,7 @@ const signOutSuccess = () => {
   $('#welcome-message').text('');
   hideAndClearModal('#sign-out-modal');
   toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
+  $('#content').html(showDescriptionTemplate());
 };
 
 // If any login functionality fails, let user know
