@@ -63,14 +63,18 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">
-                        Change Password
-                      </button
+                      <a>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">
+                          Change Password
+                        </button>
+                      </a>
                     </li>
                     <li>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sign-out-modal">
-                        Log Out
-                      </button
+                      <a>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sign-out-modal">
+                          Log Out
+                        </button>
+                      </a>
                     </li>
                     <!-- <li><a href="#">Something else here</a></li>
                     <li role="separator" class="divider"></li>
@@ -172,6 +176,31 @@
         </div>
       </div>
       <!-- END CHANGE PASSWORD MODAL -->
+
+      <!-- START SIGN OUT MODAL -->
+      <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="sign-out-modal-label">Sign Out</h4>
+            </div>
+            <div class="modal-body">
+              <form class='sign-out-form'>
+                <div class="form-group">
+                  <p>Are you sure you want to sign-out?</p>
+                </div>
+                <div class="modal-footer">
+                  <p class="modal-success"></p>
+                  <button type="submit" class="btn btn-default">Sign Out</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END SIGN OUT MODAL -->
       <!-- END MODALS -->
     </body>
 </html>
