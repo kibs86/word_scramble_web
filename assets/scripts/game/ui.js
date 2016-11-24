@@ -1,9 +1,42 @@
 'use strict';
 
 const store = require('../store.js');
-
 const showGameTemplate = require('../templates/play-game.handlebars');
 
+// START GUESS FUNCTIONS
+
+// check turn count
+const checkTurnCount = () => {
+  if (store.turnCount > 0) {
+    store.turnCount--;
+  } else {
+    console.log("Sorry, you've reached max guesses.");
+  }
+};
+
+// check for word match
+const checkMatch = (guess) => {
+  if (guess.toUpperCase() === store.word.word.toUpperCase()) {
+    console.log("you're correct!");
+  } else {
+    checkTurnCount();
+  }
+};
+
+// Performs actions/checks that occur when a user makes a guess
+const guessMade = (guess) => {
+  console.log(guess);
+  // check for correct answer
+  checkMatch(guess);
+  $('#content').html(showGameTemplate(store));
+};
+
+//END GUESS FUNCTIONS
+
+// START GET WORD FUNCTIONS
+
+// Scramble the word that's pulled back from the API
+// Uses Fisher-Yates shuffle
 const scrambleWord = (word) => {
   // split the word into an array
   let wordArr = word.split("");
@@ -23,21 +56,13 @@ const scrambleWord = (word) => {
   // console.log('scrambled word is ' + wordArr.join(""));
 };
 
-const guessMade = (guess) => {
-  console.log(guess);
-  if (store.turnCount > 0) {
-    store.turnCount--;
-  } else {
-    console.log("Sorry, you've reached max guesses.");
-  }
-  $('#content').html(showGameTemplate(store));
-};
-
 const getEasyWordSuccess = (data) => {
   store.word = data.word;
   store.scrambled = scrambleWord(store.word.word.toUpperCase());
   $('#content').html(showGameTemplate(store));
 };
+
+// END GET WORD FUNCTIONS
 
 const failure = (error) => {
   console.log('failure due to ' + error);
