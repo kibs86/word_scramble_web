@@ -1,0 +1,14 @@
+<p>
+  Guess the word correctly within <span class="tries"> {{this.turnCount}} </span> tries to complete the level!
+</p>
+<p class="scrambled">
+  {{this.scrambled}}
+</p>
+<form class="guess-form">
+  <div class="form-group">
+    <div class="col-xs flex-xs-middle">
+      <input type="text" name="guess" class="form-control" id="user-guess" placeholder="enter your guess">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default" id="guess-button">Guess</button>
+</form>

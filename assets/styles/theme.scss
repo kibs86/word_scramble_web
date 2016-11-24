@@ -57,6 +57,25 @@ hr::before {
 .small-text {
   font-size: .7em;
 }
+
+#user-guess {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 25%;
+}
+
+.scrambled {
+  background-color: $sky;
+  font-size: 2em;
+  margin: 0 auto;
+  width: 33%;
+}
+
+.tries {
+  color: $red;
+  font-size: 1.3em;
+}
 // END GAME STYLES
 
 // START NAVBAR STYLES
