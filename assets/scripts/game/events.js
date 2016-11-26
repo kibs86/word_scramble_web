@@ -16,7 +16,7 @@ const onMakeGuess = function (event) {
   let data = getFormFields(this);
   ui.guessMade(data.guess);
   $('.guess-form').on('submit', onMakeGuess);
-  $('#play-again-button').on('click', onPlayAgain);
+  $('.play-again-button').on('click', onPlayAgain);
 };
 
 const onChooseDifficulty = function (event) {
