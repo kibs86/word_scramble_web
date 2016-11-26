@@ -2,6 +2,7 @@
 
 const store = require('../store.js');
 const showGameTemplate = require('../templates/play-game.handlebars');
+const showWinTemplate = require('../templates/win-game.handlebars');
 
 // START GUESS FUNCTIONS
 
@@ -9,6 +10,7 @@ const showGameTemplate = require('../templates/play-game.handlebars');
 const checkTurnCount = () => {
   if (store.turnCount > 0) {
     store.turnCount--;
+    $('#content').html(showGameTemplate(store));
   } else {
     console.log("Sorry, you've reached max guesses.");
   }
@@ -17,7 +19,8 @@ const checkTurnCount = () => {
 // check for word match
 const checkMatch = (guess) => {
   if (guess.toUpperCase() === store.word.word.toUpperCase()) {
-    console.log("you're correct!");
+    console.log('you guessed correctly');
+    $('#content').html(showWinTemplate(store.word.word.toUpperCase()));
   } else {
     checkTurnCount();
   }
@@ -28,7 +31,6 @@ const guessMade = (guess) => {
   console.log(guess);
   // check for correct answer
   checkMatch(guess);
-  $('#content').html(showGameTemplate(store));
 };
 
 //END GUESS FUNCTIONS
