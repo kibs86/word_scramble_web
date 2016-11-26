@@ -3,17 +3,19 @@
 const store = require('../store.js');
 const showGameTemplate = require('../templates/play-game.handlebars');
 const showWinTemplate = require('../templates/win-game.handlebars');
+const showLoseTemplate = require('../templates/lose-game.handlebars');
 const showDifficultyTemplate = require('../templates/choose-difficulty.handlebars');
 
 // START GUESS FUNCTIONS
 
 // check turn count
 const checkTurnCount = () => {
-  if (store.turnCount > 0) {
+  if (store.turnCount > 1) {
     store.turnCount--;
     $('#content').html(showGameTemplate(store));
   } else {
     console.log("Sorry, you've reached max guesses.");
+    $('#content').html(showLoseTemplate());
   }
 };
 
