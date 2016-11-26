@@ -72,6 +72,7 @@ const getEasyWordSuccess = (data) => {
 // START PLAY AGAIN FUNCTIONS
 const playAgain = () => {
   $('#content').html(showDifficultyTemplate());
+  store.turnCount = 3;
 };
 // END PLAY AGAIN FUNCTIONS
 

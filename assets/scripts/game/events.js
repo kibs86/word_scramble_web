@@ -9,6 +9,7 @@ const ui = require('./ui');
 const onPlayAgain = function (event) {
   event.preventDefault();
   ui.playAgain();
+  $('.diff-button').on('click', onChooseDifficulty);
 };
 
 const onMakeGuess = function (event) {
