@@ -3,6 +3,7 @@
 const store = require('../store.js');
 const showGameTemplate = require('../templates/play-game.handlebars');
 const showWinTemplate = require('../templates/win-game.handlebars');
+const showDifficultyTemplate = require('../templates/choose-difficulty.handlebars');
 
 // START GUESS FUNCTIONS
 
@@ -63,8 +64,14 @@ const getEasyWordSuccess = (data) => {
   store.scrambled = scrambleWord(store.word.word.toUpperCase());
   $('#content').html(showGameTemplate(store));
 };
-
 // END GET WORD FUNCTIONS
+
+
+// START PLAY AGAIN FUNCTIONS
+const playAgain = () => {
+  $('#content').html(showDifficultyTemplate());
+};
+// END PLAY AGAIN FUNCTIONS
 
 const failure = (error) => {
   console.log('failure due to ' + error);
@@ -73,5 +80,6 @@ const failure = (error) => {
 module.exports = {
   guessMade,
   getEasyWordSuccess,
+  playAgain,
   failure,
 };
