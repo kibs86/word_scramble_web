@@ -5,6 +5,7 @@ const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
 const game = require('../game/events.js');
+const myWords = require('../my-words/events.js');
 
 // Allows a new user to sign up
 // Make sure their password and password confirmation are the same.
@@ -28,6 +29,7 @@ const onSignIn = function (event) {
      .then(ui.signInSuccess)
      .then(function() {
         $('.diff-button').on('click', game.onChooseDifficulty);
+        $('.my-words-button').on('click', myWords.onClickMyWords);
       })
      .catch(ui.signInFailure);
 };

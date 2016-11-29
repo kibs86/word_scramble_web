@@ -1,15 +1,16 @@
 'use strict';
 
 const getFormFields = require(`../../../lib/get-form-fields`);
-
 const api = require('./api');
 const ui = require('./ui');
+const myWords = require('../my-words/events.js');
 // const store = require('../store.js');
 
 const onPlayAgain = function (event) {
   event.preventDefault();
   ui.playAgain();
   $('.diff-button').on('click', onChooseDifficulty);
+  $('.my-words-button').on('click', myWords.onClickMyWords);
 };
 
 const onMakeGuess = function (event) {
