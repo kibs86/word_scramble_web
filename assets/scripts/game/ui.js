@@ -71,7 +71,8 @@ const scramble = (word) => {
 };
 
 const getEasyWordSuccess = (data) => {
-  store.word = data.word;
+  store.word = data.easy_word;
+  console.log('data.easy_word is ' + data.easy_word);
   store.scrambled = scramble(store.word.word.toUpperCase());
   $('#content').html(showGameTemplate(store));
 };
