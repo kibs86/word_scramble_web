@@ -56,12 +56,19 @@ const changePasswordSuccess = () => {
 const signOutSuccess = () => {
   $('.modal-success').text("SUCCESS!");
   $('#welcome-message').text('');
+  $('.login-message').text('');
   hideAndClearModal('#sign-out-modal');
   toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
   $('#content').html(showDescriptionTemplate());
 };
 
-// If any login functionality fails, let user know
+// If login fails, let user know.
+const signInFailure = () => {
+  $('.login-message').text("Login Failed: Please double check your password or sign up first.");
+  clearForm('.sign-in-form');
+};
+
+// If any auth functionality (aside from login) fails, let user know
 const failure = () => {
   $('.modal-success').text("That function failed.");
 };
@@ -74,5 +81,6 @@ module.exports = {
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
+  signInFailure,
   failure,
 };

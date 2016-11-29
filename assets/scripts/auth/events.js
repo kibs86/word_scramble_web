@@ -29,7 +29,7 @@ const onSignIn = function (event) {
      .then(function() {
         $('.diff-button').on('click', game.onChooseDifficulty);
       })
-     .catch(ui.failure);
+     .catch(ui.signInFailure);
 };
 
 // Allows a user to change their password

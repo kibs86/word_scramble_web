@@ -87,6 +87,12 @@ hr::before {
   background-color: $carbon;
 }
 
+.login-message {
+  color: $sky;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
 .new-user {
   color: $sky;
   font-size: .8em;
