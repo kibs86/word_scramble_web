@@ -9,7 +9,7 @@ const getEasyWord = function () {
     url: config.host + '/easy-word',
     method: 'GET',
     headers: {
-    Authorization: 'Token token=' + store.user.token,
+      Authorization: 'Token token=' + store.user.token,
     },
   });
 };
@@ -24,7 +24,10 @@ const createCompletedWord = function () {
         user_id: store.user.id,
         easy_word_id: store.word.id
       }
-    }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
   });
 };
 

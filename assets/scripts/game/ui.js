@@ -94,7 +94,7 @@ const playAgain = () => {
 // START CREATE COMPLETED WORDS FUNCTIONS
 const createCompletedWordSuccess = () => {
   console.log('successfully created a completed word');
-}
+};
 // END CREATE COMPLETED WORDS FUNCTIONS
 
 const failure = (error) => {
