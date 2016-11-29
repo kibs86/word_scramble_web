@@ -15,7 +15,12 @@ const onPlayAgain = function (event) {
 const onMakeGuess = function (event) {
   event.preventDefault();
   let data = getFormFields(this);
-  ui.guessMade(data.guess);
+  if (ui.guessMade(data.guess) === true) {
+    console.log('you guessed successfully');
+    api.createCompletedWord()
+      .then(ui.createCompletedWordSuccess)
+      .catch(ui.failure);
+  }
   $('.guess-form').on('submit', onMakeGuess);
   $('.play-again-button').on('click', onPlayAgain);
 };

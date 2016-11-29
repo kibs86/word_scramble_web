@@ -22,8 +22,9 @@ const checkTurnCount = () => {
 // check for word match
 const checkMatch = (guess) => {
   if (guess.toUpperCase() === store.word.word.toUpperCase()) {
-    console.log('you guessed correctly');
+    // console.log('you guessed correctly');
     $('#content').html(showWinTemplate(store.word.word.toUpperCase()));
+    return true;
   } else {
     checkTurnCount();
   }
@@ -31,9 +32,10 @@ const checkMatch = (guess) => {
 
 // Performs actions/checks that occur when a user makes a guess
 const guessMade = (guess) => {
-  console.log(guess);
   // check for correct answer
-  checkMatch(guess);
+  if (checkMatch(guess) === true) {
+    return true;
+  }
 };
 
 //END GUESS FUNCTIONS
@@ -72,7 +74,6 @@ const scramble = (word) => {
 
 const getEasyWordSuccess = (data) => {
   store.word = data.easy_word;
-  console.log('data.easy_word is ' + data.easy_word);
   store.scrambled = scramble(store.word.word.toUpperCase());
   $('#content').html(showGameTemplate(store));
 };
@@ -86,6 +87,12 @@ const playAgain = () => {
 };
 // END PLAY AGAIN FUNCTIONS
 
+// START CREATE COMPLETED WORDS FUNCTIONS
+const createCompletedWordSuccess = () => {
+  console.log('successfully created a completed word');
+}
+// END CREATE COMPLETED WORDS FUNCTIONS
+
 const failure = (error) => {
   console.log('failure due to ' + error);
 };
@@ -94,5 +101,6 @@ module.exports = {
   guessMade,
   getEasyWordSuccess,
   playAgain,
+  createCompletedWordSuccess,
   failure,
 };
