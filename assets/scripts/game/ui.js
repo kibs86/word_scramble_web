@@ -73,9 +73,13 @@ const scramble = (word) => {
 };
 
 const getEasyWordSuccess = (data) => {
-  store.word = data.easy_word;
-  store.scrambled = scramble(store.word.word.toUpperCase());
-  $('#content').html(showGameTemplate(store));
+  if (data.easy_word.id === '') {
+    $('#user-message').html("You've completed all those levels.  Please choose another difficulty.");
+  } else {
+    store.word = data.easy_word;
+    store.scrambled = scramble(store.word.word.toUpperCase());
+    $('#content').html(showGameTemplate(store));
+  }
 };
 // END GET WORD FUNCTIONS
 

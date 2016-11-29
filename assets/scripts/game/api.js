@@ -7,7 +7,10 @@ const store = require('../store.js');
 const getEasyWord = function () {
   return $.ajax({
     url: config.host + '/easy-word',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+    Authorization: 'Token token=' + store.user.token,
+    },
   });
 };
 
