@@ -33,6 +33,7 @@ const signUpSuccess = () => {
   // console.log(data);
   $('.modal-success').text("SUCCESS!");
   hideAndClearModal('#sign-up-modal');
+  $('.login-message').text('');
 };
 
 // If sign in is successful, store their data and let the user know
