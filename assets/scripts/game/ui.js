@@ -61,9 +61,18 @@ const scrambleWord = (word) => {
   // console.log('scrambled word is ' + wordArr.join(""));
 };
 
+// Sometimes a word can be scrambled to itself.  This fixes that bug.
+const scramble = (word) => {
+	let scrambled = scrambleWord(word);
+  while (scrambled === store.word.word.toUpperCase()) {
+  	scrambled = scrambleWord(word);
+  }
+  return scrambled;
+};
+
 const getEasyWordSuccess = (data) => {
   store.word = data.word;
-  store.scrambled = scrambleWord(store.word.word.toUpperCase());
+  store.scrambled = scramble(store.word.word.toUpperCase());
   $('#content').html(showGameTemplate(store));
 };
 // END GET WORD FUNCTIONS
