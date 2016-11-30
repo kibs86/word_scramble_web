@@ -40,28 +40,12 @@ const onMakeGuess = function (event) {
 const onChooseDifficulty = function (event) {
   event.preventDefault();
   store.difficulty = $(this).attr('id');
-  if (store.difficulty === 'easy') {
-    api.getWord()
-      .then(ui.getEasyWordSuccess)
-      .then(function() {
-        $('.guess-form').on('submit', onMakeGuess);
-      })
-      .catch(ui.failure);
-  } else if (store.difficulty === 'medium') {
-    api.getWord()
-      .then(ui.getMediumWordSuccess)
-      .then(function() {
-         $('.guess-form').on('submit', onMakeGuess);
-       })
-      .catch(ui.failure);
-  } else {
-    api.getWord()
-      .then(ui.getHardWordSuccess)
-      .then(function() {
-         $('.guess-form').on('submit', onMakeGuess);
-       })
-      .catch(ui.failure);
-  }
+  api.getWord()
+    .then(ui.getWordSuccess)
+    .then(function() {
+      $('.guess-form').on('submit', onMakeGuess);
+    })
+    .catch(ui.failure)
 };
 
 module.exports = {

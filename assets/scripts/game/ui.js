@@ -72,31 +72,11 @@ const scramble = (word) => {
   return scrambled;
 };
 
-const getEasyWordSuccess = (data) => {
-  if (data.easy_word.id === '') {
+const getWordSuccess = (data) => {
+  if (data.word.id === '') {
     $('#user-message').html("You've completed all those levels.  Please choose another difficulty.");
   } else {
-    store.word = data.easy_word;
-    store.scrambled = scramble(store.word.word.toUpperCase());
-    $('#content').html(showGameTemplate(store));
-  }
-};
-
-const getMediumWordSuccess = (data) => {
-  if (data.medium_word.id === '') {
-    $('#user-message').html("You've completed all those levels.  Please choose another difficulty.");
-  } else {
-    store.word = data.medium_word;
-    store.scrambled = scramble(store.word.word.toUpperCase());
-    $('#content').html(showGameTemplate(store));
-  }
-};
-
-const getHardWordSuccess = (data) => {
-  if (data.hard_word.id === '') {
-    $('#user-message').html("You've completed all those levels.  Please choose another difficulty.");
-  } else {
-    store.word = data.hard_word;
+    store.word = data.word;
     store.scrambled = scramble(store.word.word.toUpperCase());
     $('#content').html(showGameTemplate(store));
   }
@@ -123,7 +103,7 @@ const failure = (error) => {
 
 module.exports = {
   guessMade,
-  getEasyWordSuccess,
+  getWordSuccess,
   getMediumWordSuccess,
   getHardWordSuccess,
   playAgain,
