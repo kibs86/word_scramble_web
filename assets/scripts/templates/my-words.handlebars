@@ -1,31 +1,28 @@
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create-word-modal">
-  Create Word
+  Create New Word
 </button>
 
-<!-- START MODALS -->
-<!-- START CREATE WORD MODAL -->
-<div class="modal fade" id="create-word-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="create-word-modal-label">Create Word</h4>
-      </div>
-      <div class="modal-body">
-        <form class='create-word-form'>
-          <div class="form-group">
-            <label for="create-word">Word<span class="asterisk">*</span></label>
-              <input type="text" name="word" class="form-control" id="create-word" placeholder="Word" required="required">
-          </div>
-          <div class="modal-footer">
-            <p class="modal-success"></p>
-            <button type="button" class="btn btn-default reset" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+<button type="button" class="get-my-words-button btn btn-default"> Manage My Words </button>
+
+<div class="display-my-words">
+  <table class="my-words-table">
+      <tr>
+        <th> ID </th>
+        <th> Word </th>
+        <th> Creator </th>
+        <th> Manage </th>
+      </tr>
+      {{#each easy_words as |easy_word|}}
+      <tr>
+        <td> {{easy_word.id}} </td>
+        <td> {{easy_word.word}} </td>
+        <td> {{easy_word.creator}} </td>
+        <td>
+          <button type="button" class="btn-sm btn-defaults update-word" data-toggle="modal" data-target="#update-word-modal" data-easy-id= {{easy_word.id}}>
+            Edit
+          </button>
+      </tr>
+      {{/each}}
+    </table>
+    <!-- data-word-id={{easy_word.id}} -->
 </div>
-<!-- END SIGN-UP MODAL -->
-<!-- END MODALS -->

@@ -91,6 +91,29 @@ hr::before {
 }
 // END GAME STYLES
 
+// START MY WORDS STYLES
+.my-words-table {
+  border: 3px solid $black;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.my-words-table tr td {
+  border: 1px solid $black;
+  font-size: .9em;
+  padding: 10px;
+  text-align: center;
+}
+
+.my-words-table th {
+  border: 1px solid $black;
+  font-weight: 900;
+  padding: 10px;
+  text-align: center;
+}
+
+// END MY WORDS STYLES
+
 // START NAVBAR STYLES
 .navbar {
   background-color: $carbon;

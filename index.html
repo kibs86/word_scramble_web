@@ -191,6 +191,59 @@
         </div>
       </div>
       <!-- END SIGN OUT MODAL -->
+
+      <!-- START CREATE WORD MODAL -->
+      <div class="modal fade" id="create-word-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="create-word-modal-label">Create Word</h4>
+            </div>
+            <div class="modal-body">
+              <form class='create-word-form'>
+                <div class="form-group">
+                  <label for="create-word">Word<span class="asterisk">*</span></label>
+                    <input type="text" name="word" class="form-control" id="create-word" placeholder="Word" required="required">
+                </div>
+                <div class="modal-footer">
+                  <p class="modal-success"></p>
+                  <button type="button" class="btn btn-default reset" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END CREATE WORD MODAL -->
+
+      <!-- START UPDATE WORD MODAL -->
+      <div class="modal fade" id="update-word-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="update-word-modal-label">Update Word</h4>
+            </div>
+            <div class="modal-body">
+              <form class='update-word-form'>
+                <div class="form-group">
+                  <label for="update-word">Word<span class="asterisk">*</span></label>
+                    <input type="text" name="word" class="form-control" id="update-word" placeholder="Word" required="required">
+                </div>
+                <div class="modal-footer">
+                  <p class="modal-success"></p>
+                  <button type="button" class="btn btn-default reset" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END UPDATE WORD MODAL -->
+
       <!-- END MODALS -->
     </body>
 </html>
