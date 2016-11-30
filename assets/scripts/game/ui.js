@@ -104,8 +104,6 @@ const failure = (error) => {
 module.exports = {
   guessMade,
   getWordSuccess,
-  getMediumWordSuccess,
-  getHardWordSuccess,
   playAgain,
   createCompletedWordSuccess,
   failure,
