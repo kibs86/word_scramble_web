@@ -17,7 +17,10 @@ const store = require('../store.js');
 const getWord = function () {
   return $.ajax({
     url: config.host + '/get-word/' + store.difficulty,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
   });
 };
 
