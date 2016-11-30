@@ -81,6 +81,16 @@ const getEasyWordSuccess = (data) => {
     $('#content').html(showGameTemplate(store));
   }
 };
+
+const getMediumWordSuccess = (data) => {
+  if (data.medium_word.id === '') {
+    $('#user-message').html("You've completed all those levels.  Please choose another difficulty.");
+  } else {
+    store.word = data.medium_word;
+    store.scrambled = scramble(store.word.word.toUpperCase());
+    $('#content').html(showGameTemplate(store));
+  }
+};
 // END GET WORD FUNCTIONS
 
 
@@ -104,6 +114,7 @@ const failure = (error) => {
 module.exports = {
   guessMade,
   getEasyWordSuccess,
+  getMediumWordSuccess,
   playAgain,
   createCompletedWordSuccess,
   failure,

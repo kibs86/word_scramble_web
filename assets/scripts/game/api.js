@@ -4,9 +4,10 @@ const config = require('../config.js');
 const store = require('../store.js');
 
 // Ajax request to get an easy word
-const getEasyWord = function () {
+// url: config.host + '/easy-word',
+const getWord = function () {
   return $.ajax({
-    url: config.host + '/easy-word',
+    url: config.host + '/' + store.difficulty + '-word',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token,
@@ -15,16 +16,17 @@ const getEasyWord = function () {
 };
 
 // Ajax request to create a completed word
-const createCompletedWord = function () {
+// data: {
+//   completed_word: {
+//     user_id: store.user.id,
+//     easy_word_id: store.word.id
+//   }
+// },
+const createCompletedWord = function (data) {
   return $.ajax({
     url: config.host + '/completed_words',
     method: 'POST',
-    data: {
-      completed_word: {
-        user_id: store.user.id,
-        easy_word_id: store.word.id
-      }
-    },
+    data,
     headers: {
       Authorization: 'Token token=' + store.user.token,
     },
@@ -32,6 +34,6 @@ const createCompletedWord = function () {
 };
 
 module.exports = {
-  getEasyWord,
+  getWord,
   createCompletedWord,
 };
