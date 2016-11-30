@@ -9,8 +9,10 @@ const store = require('../store.js');
 const createCompletedWordData = () => {
   if (store.difficulty === 'easy') {
     return { completed_word: { user_id: store.user.id, easy_word_id: store.word.id }};
-  } else {
+  } else if (store.difficulty === 'medium') {
     return { completed_word: { user_id: store.user.id, medium_word_id: store.word.id }};
+  } else {
+    return { completed_word: { user_id: store.user.id, hard_word_id: store.word.id }};
   }
 };
 
@@ -53,7 +55,12 @@ const onChooseDifficulty = function (event) {
        })
       .catch(ui.failure);
   } else {
-    console.log('hard button clicked');
+    api.getWord()
+      .then(ui.getHardWordSuccess)
+      .then(function() {
+         $('.guess-form').on('submit', onMakeGuess);
+       })
+      .catch(ui.failure);
   }
 };
 
