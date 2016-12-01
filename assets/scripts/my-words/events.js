@@ -88,6 +88,7 @@ const onClickMyWords = function (event) {
        $('.update-word').on('click', onFindId);
        $('.update-word-form').on('submit', onSubmitUpdate);
        $('.create-word-form').on('submit', onSubmitCreate);
+       $('#hide-play-game').show();
      })
      .catch(ui.failure);
 };

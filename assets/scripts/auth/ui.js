@@ -59,7 +59,7 @@ const signOutSuccess = () => {
   $('#welcome-message').text('');
   $('.login-message').text('');
   hideAndClearModal('#sign-out-modal');
-  toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
+  toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup', '#hide-play-game']);
   $('#content').html(showDescriptionTemplate());
 };
 

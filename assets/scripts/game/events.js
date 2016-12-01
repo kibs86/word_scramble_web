@@ -15,6 +15,7 @@ const onPlayAgain = function (event) {
   ui.playAgain();
   $('.diff-button').on('click', onChooseDifficulty);
   $('.my-words-button').on('click', myWords.onClickMyWords);
+  $('#hide-play-game').hide();
 };
 
 const onMakeGuess = function (event) {
@@ -42,7 +43,11 @@ const onChooseDifficulty = function (event) {
     .catch(ui.failure)
 };
 
+const addHandlers = () => {
+  $('.play-again-button').on('click', onPlayAgain);
+};
+
 module.exports = {
-  // addHandlers,
+  addHandlers,
   onChooseDifficulty,
 };
