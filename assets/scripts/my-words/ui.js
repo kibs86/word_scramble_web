@@ -17,12 +17,21 @@ const displayMyWords = (data) => {
 };
 
 const wordsIndexSuccess = (data) => {
-  store.allWords = data;
+  store.allWords = [];
+  for (let i = 0; i < data.words.length; i++) {
+    store.allWords.push(data.words[i].word);
+  }
 };
 
 const updateWordSuccess = (data) => {
   $('.modal-success').html('Success');
   hideAndClearModal('#update-word-modal');
+  $('#content').html(showMyWordsTemplate(data));
+};
+
+const createWordSuccess = (data) => {
+  $('.modal-success').html('Success');
+  hideAndClearModal('#create-word-modal');
   $('#content').html(showMyWordsTemplate(data));
 };
 
@@ -34,5 +43,6 @@ module.exports = {
   displayMyWords,
   wordsIndexSuccess,
   updateWordSuccess,
+  createWordSuccess,
   failure,
 };
