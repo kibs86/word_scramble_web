@@ -1,4 +1,4 @@
-<article class="description">
+{{!-- <article class="description">
   <h3> Get Started </h3>
   <p> <small> Please sign up for a new account or login with an existing account to begin! </small> </p>
 </article>
@@ -20,4 +20,58 @@
   <p><small> You also have the ability to create your own words! You won't be able to play them
   since you'll already know what the word is, but other players will see them! Just click
   on "My Words" when you login. </small></p>
-</article>
+</article> --}}
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h4> Game Description </h4>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <p>
+        <small> This is a word scramble game!  You'll be given the option to choose
+          between three difficulty tiers: </small>
+        </p>
+        <ul>
+          <li class="description-list"> <span class="bold"> Easy: </span> <small> < 5 Letters </small> </li>
+          <li class="description-list"> <span class="bold"> Medium: </span> <small> 5 - 8 Letters </small> </li>
+          <li class="description-list"> <span class="bold"> Hard: </span> <small> > 8 Letters </small> </li>
+        </ul>
+        <p> <small> You'll have three tries to guess the word! </small> </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h4> Get Started </h4>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <p> <small> Please sign up for a new account or login with an existing account to begin! </small> </p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h4> Create Your Own Words </h4>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <p class="description"><small> You also have the ability to create and update your own words! Just click on "My Words" when you login. </small></p>
+      </div>
+    </div>
+  </div>
+</div>

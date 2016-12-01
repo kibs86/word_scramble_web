@@ -2,7 +2,7 @@
 
 const config = {
   host: 'http://localhost:4741',
-  //host: 'https://aqueous-atoll-85096.herokuapp.com',
+  //host: 'https://guarded-island-79443.herokuapp.com',
 };
 
 module.exports = config;

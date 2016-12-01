@@ -35,6 +35,16 @@ div {
   margin: 5px;
 }
 
+#headingOne,
+#headingTwo,
+#headingThree {
+  background-color: $sky;
+}
+
+.panel-body {
+  background-color: $neutral;
+}
+
 #content {
   font-size: 1.2em;
 }
