@@ -37,9 +37,13 @@ const onCreateWord = function (newWord) {
   let data = { word: { word: newWord, difficulty: newDifficulty } };
   api.createWord(data)
     .then(ui.createWordSuccess)
-    .then(function() {
-      $('.update-word').on('click', onFindId);
-    })
+    .then(api.myWordsIndex()
+         .then(ui.displayMyWords)
+         .then(function() {
+           $('.update-word').on('click', onFindId);
+           $('.update-word-form').on('submit', onSubmitUpdate);
+           $('.create-word-form').on('submit', onSubmitCreate);
+         }))
     .catch(ui.failure);
 };
 

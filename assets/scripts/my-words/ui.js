@@ -32,7 +32,7 @@ const updateWordSuccess = (data) => {
 const createWordSuccess = (data) => {
   $('.modal-success').html('Success');
   hideAndClearModal('#create-word-modal');
-  $('#content').html(showMyWordsTemplate(data));
+  // $('#content').html(showMyWordsTemplate(data));
 };
 
 const failure = (error) => {
