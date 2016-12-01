@@ -3,41 +3,68 @@
 const getFormFields = require(`../../../lib/get-form-fields`);
 const api = require('./api');
 const ui = require('./ui');
-// const store = require('../store.js');
+const store = require('../store.js');
 
 const onFindId = function (event) {
   event.preventDefault();
-  let updateId = $(this).attr('data-easy-id');
-  console.log('update ID is ' + updateId);
+  store.updateId = $(this).attr('data-word-id');
+  console.log(store.updateId);
 };
 
-const onUpdateWord = function (event) {
-  event.preventDefault();
-  let data = getFormFields(this);
-  console.log('clicked the update word button');
-  console.log(data);
+const getDifficulty = function (newWord) {
+  if (newWord.length < 5) {
+    return 'easy';
+  } else if (newWord.length > 8) {
+    return 'hard';
+  } else {
+    return 'medium';
+  }
 };
 
-const onClickGetMyWords = function (event) {
-  event.preventDefault();
-  console.log('clicked get my words button');
+const onUpdateWord = function (newWord) {
+  let newDifficulty = getDifficulty(newWord);
+  let data = { word: { word: newWord, difficulty: newDifficulty } };
+  api.updateWord(data)
+    .then(ui.updateWordSuccess)
+    .then(function() {
+      $('.update-word').on('click', onFindId);
+    })
+    .catch(ui.failure);
 };
+
+const checkWordExistence = function (newWord) {
+  api.wordsIndex()
+    .then(ui.wordsIndexSuccess)
+    .then(function() {
+      if (store.allWords.some(elem => elem === newWord)) {
+        $('.modal-success').html('Sorry, that word already exists.  Please choose another.');
+      } else {
+        onUpdateWord(newWord);
+      }
+    })
+    .catch(ui.failure);
+};
+
+const onSubmitUpdate = function (event) {
+  event.preventDefault();
+  // find the new word and make sure it hasn't been created already
+  let newWord = getFormFields(this).word;
+  checkWordExistence(newWord);
+};
+
 
 const onClickMyWords = function (event) {
   event.preventDefault();
-  api.wordsIndex()
+  api.myWordsIndex()
      .then(ui.displayMyWords)
      .then(function() {
-       $('.get-my-words-button').on('click', onClickGetMyWords);
        $('.update-word').on('click', onFindId);
-       $('.update-word-form').on('submit', onUpdateWord);
+       $('.update-word-form').on('submit', onSubmitUpdate);
      })
      .catch(ui.failure);
-  // ui.displayMyWords();
 };
 
 module.exports = {
   // addHandlers,
   onClickMyWords,
-  onClickGetMyWords,
 };

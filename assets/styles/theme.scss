@@ -92,7 +92,16 @@ hr::before {
 // END GAME STYLES
 
 // START MY WORDS STYLES
+.create-word-button {
+  margin-top: 30px;
+}
+
+.display-my-words {
+  margin-top: 30px;
+}
+
 .my-words-table {
+  background-color: $light-grey;
   border: 3px solid $black;
   margin: 0 auto;
   padding: 10px;
@@ -106,6 +115,7 @@ hr::before {
 }
 
 .my-words-table th {
+  background-color: $sky;
   border: 1px solid $black;
   font-weight: 900;
   padding: 10px;
