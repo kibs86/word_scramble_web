@@ -15,10 +15,17 @@ const onSignUp = function (event) {
   if (data.credentials.password === data.credentials.password_confirmation) {
     api.signUp(data)
       .then(ui.signUpSuccess)
-      .catch(ui.failure);
+      .then(api.signIn(data)
+         .then(ui.signInSuccess)
+         .then(function() {
+            $('.diff-button').on('click', game.onChooseDifficulty);
+            $('.my-words-button').on('click', myWords.onClickMyWords);
+          })
+         .catch(ui.signInFailure));
   } else {
     $('.modal-success').text("Please make sure your passwords are the same.");
   }
+
 };
 
 // Allows an existing user to login
