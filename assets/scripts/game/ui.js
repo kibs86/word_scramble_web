@@ -82,6 +82,7 @@ const scramble = (word) => {
 };
 
 const getWordSuccess = (data) => {
+  store.turnCount = 3;
   if (data.word.id === '') {
     $('.user-message').html("You've completed all those levels.  Please choose another difficulty.");
   } else {
@@ -89,7 +90,6 @@ const getWordSuccess = (data) => {
     store.scrambled = scramble(store.word.word.toUpperCase());
     $('#content').html(showGameTemplate(store));
   }
-  // console.log(data);
 };
 // END GET WORD FUNCTIONS
 
@@ -97,7 +97,7 @@ const getWordSuccess = (data) => {
 // START CHOOSE NEW DIFFICULTY FUNCTIONS
 const chooseNewDifficulty = () => {
   $('#content').html(showDifficultyTemplate());
-  store.turnCount = 3;
+  // store.turnCount = 3;
 };
 // END CHOOSE NEW DIFFICULTY FUNCTIONS
 
