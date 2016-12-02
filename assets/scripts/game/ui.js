@@ -83,7 +83,7 @@ const scramble = (word) => {
 
 const getWordSuccess = (data) => {
   if (data.word.id === '') {
-    $('#user-message').html("You've completed all those levels.  Please choose another difficulty.");
+    $('.user-message').html("You've completed all those levels.  Please choose another difficulty.");
   } else {
     store.word = data.word;
     store.scrambled = scramble(store.word.word.toUpperCase());
@@ -94,12 +94,12 @@ const getWordSuccess = (data) => {
 // END GET WORD FUNCTIONS
 
 
-// START PLAY AGAIN FUNCTIONS
-const playAgain = () => {
+// START CHOOSE NEW DIFFICULTY FUNCTIONS
+const chooseNewDifficulty = () => {
   $('#content').html(showDifficultyTemplate());
   store.turnCount = 3;
 };
-// END PLAY AGAIN FUNCTIONS
+// END CHOOSE NEW DIFFICULTY FUNCTIONS
 
 // START CREATE COMPLETED WORDS FUNCTIONS
 const createCompletedWordSuccess = () => {
@@ -119,7 +119,7 @@ const failure = (error) => {
 module.exports = {
   guessMade,
   getWordSuccess,
-  playAgain,
+  chooseNewDifficulty,
   createCompletedWordSuccess,
   deleteCompletedWordsSuccess,
   failure,

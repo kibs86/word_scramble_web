@@ -11,9 +11,9 @@ const createCompletedWordData = () => {
   return { completed_word: { word_id: store.word.id }};
 };
 
-const onPlayAgain = function (event) {
+const onChooseNewDifficulty = function (event) {
   event.preventDefault();
-  ui.playAgain();
+  ui.chooseNewDifficulty();
   $('.diff-button').on('click', onChooseDifficulty);
   $('.my-words-button').on('click', myWords.onClickMyWords);
   $('#hide-play-game').hide();
@@ -29,7 +29,18 @@ const onMakeGuess = function (event) {
        .catch(ui.failure);
    }
    $('.guess-form').on('submit', onMakeGuess);
-   $('.play-again-button').on('click', onPlayAgain);
+   $('.new-difficulty-button').on('click', onChooseNewDifficulty);
+   $('.next-word-button').on('click', onNextWord);
+};
+
+const onNextWord = function (event) {
+  event.preventDefault();
+  api.getWord()
+    .then(ui.getWordSuccess)
+    .then(function() {
+      $('.guess-form').on('submit', onMakeGuess);
+    })
+    .catch(ui.failure);
 };
 
 const onChooseDifficulty = function (event) {
@@ -51,7 +62,8 @@ const onResetGame = function (event) {
 };
 
 const addHandlers = () => {
-  $('.play-again-button').on('click', onPlayAgain);
+  $('.new-difficulty-button').on('click', onChooseNewDifficulty);
+  $('.next-word-button').on('click', onNextWord);
   $('.reset-game-form').on('submit', onResetGame);
 };
 
