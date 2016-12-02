@@ -5,12 +5,14 @@ const api = require('./api');
 const ui = require('./ui');
 const store = require('../store.js');
 
+// finds the ID of the word to be updated
 const onFindId = function (event) {
   event.preventDefault();
   store.updateId = $(this).attr('data-word-id');
   console.log(store.updateId);
 };
 
+// finds the difficulty of the word being created or updated
 const getDifficulty = function (newWord) {
   if (newWord.length < 5) {
     return 'easy';
@@ -21,6 +23,8 @@ const getDifficulty = function (newWord) {
   }
 };
 
+// when a user updates a word, find the new difficulty of the word and make
+// the ajax call
 const onUpdateWord = function (newWord) {
   let newDifficulty = getDifficulty(newWord);
   let data = { word: { word: newWord, difficulty: newDifficulty } };
@@ -32,6 +36,8 @@ const onUpdateWord = function (newWord) {
     .catch(ui.failure);
 };
 
+// when a user creates a word, find the difficulty of the word and make
+// the ajax call
 const onCreateWord = function (newWord) {
   let newDifficulty = getDifficulty(newWord);
   let data = { word: { word: newWord, difficulty: newDifficulty } };
@@ -45,6 +51,7 @@ const onCreateWord = function (newWord) {
     .catch(ui.failure);
 };
 
+// checks if a word already exists
 const checkWordExistence = function (newWord, type) {
   api.wordsIndex()
     .then(ui.wordsIndexSuccess)
@@ -62,14 +69,17 @@ const checkWordExistence = function (newWord, type) {
     .catch(ui.failure);
 };
 
+// when a user submits a word to be updated, find hte new word and make sure
+// it hasn't been created already
 const onSubmitUpdate = function (event) {
   event.preventDefault();
-  // find the new word and make sure it hasn't been created already
   let newWord = getFormFields(this).word;
   let type = 'update';
   checkWordExistence(newWord, type);
 };
 
+// when a user submits a word to be created, find hte new word and make sure
+// it hasn't been created already
 const onSubmitCreate = function (event) {
   event.preventDefault();
   let newWord = getFormFields(this).word;
@@ -77,7 +87,8 @@ const onSubmitCreate = function (event) {
   checkWordExistence(newWord, type);
 };
 
-
+// when a user clicks to see their words, make the api call to retrieve all
+// words owned by them
 const onClickMyWords = function (event) {
   event.preventDefault();
   api.myWordsIndex()

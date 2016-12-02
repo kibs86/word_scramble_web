@@ -9,7 +9,7 @@ const showDescriptionTemplate = require('./templates/game-description.handlebars
 // use require without a reference to ensure a file is bundled
 // require('./example');
 
-// hide myAccount when page first loads
+// hide myAccount and Play Game when page first loads
 $('#hide-myaccount').hide();
 $('#hide-play-game').hide();
 
@@ -20,6 +20,7 @@ $('#content').html(showDescriptionTemplate());
 $(()=>{
   // event handlers for login API
   authEvents.addHandlers();
+  // event handlers for game API
   gameEvents.addHandlers();
 
   // clear out form data if user closes form instead of hitting submit

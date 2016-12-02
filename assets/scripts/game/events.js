@@ -6,11 +6,12 @@ const ui = require('./ui');
 const myWords = require('../my-words/events.js');
 const store = require('../store.js');
 
+// creates the data to send to the ajax call for creating a completed word
 const createCompletedWordData = () => {
-  //return { completed_word: { user_id: store.user.id, word_id: store.word.id }};
   return { completed_word: { word_id: store.word.id }};
 };
 
+// allows the user to choose a new difficulty when they're playing the game
 const onChooseNewDifficulty = function (event) {
   event.preventDefault();
   ui.chooseNewDifficulty();
@@ -19,6 +20,8 @@ const onChooseNewDifficulty = function (event) {
   $('#hide-play-game').hide();
 };
 
+// when a user makes a guess, check to see if they're correct
+// if they are, create a completed word
 const onMakeGuess = function (event) {
   event.preventDefault();
   let data = getFormFields(this);
@@ -33,6 +36,7 @@ const onMakeGuess = function (event) {
    $('.next-word-button').on('click', onNextWord);
 };
 
+// give a user another word of their selected difficulty tier
 const onNextWord = function (event) {
   event.preventDefault();
   api.getWord()
@@ -43,6 +47,7 @@ const onNextWord = function (event) {
     .catch(ui.failure);
 };
 
+// get a word of the difficulty tier that the user chooses
 const onChooseDifficulty = function (event) {
   event.preventDefault();
   store.difficulty = $(this).attr('id');
@@ -54,6 +59,7 @@ const onChooseDifficulty = function (event) {
     .catch(ui.failure);
 };
 
+// issue request to delete all completed words associated with the current user
 const onResetGame = function (event) {
   event.preventDefault();
   api.deleteCompletedWords()

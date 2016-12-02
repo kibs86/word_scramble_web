@@ -3,6 +3,8 @@
 const showMyWordsTemplate = require('../templates/my-words.handlebars');
 const store = require('../store.js');
 
+// Hides and clears modals after a certain period of time
+// Called from below functions
 const hideAndClearModal = (modal) => {
   setTimeout(function() {
     $(modal).modal('hide'); }, 1000);
@@ -12,10 +14,13 @@ const hideAndClearModal = (modal) => {
     });
 };
 
+// shows the handlebars template for displaying words owned by current user
 const displayMyWords = (data) => {
   $('#content').html(showMyWordsTemplate(data));
 };
 
+// when full list of words (owned by all users) is retrieved from API, save
+// it in array
 const wordsIndexSuccess = (data) => {
   store.allWords = [];
   for (let i = 0; i < data.words.length; i++) {
@@ -23,20 +28,24 @@ const wordsIndexSuccess = (data) => {
   }
 };
 
+// when a word is successfully updated, hide/clear the modal and show updated
+// list of users words
 const updateWordSuccess = (data) => {
   $('.modal-success').html('Success');
   hideAndClearModal('#update-word-modal');
   $('#content').html(showMyWordsTemplate(data));
 };
 
+// when a word is successfully created, hide/clear the modal and show updated
+// list of users words
 const createWordSuccess = (data) => {
   $('.modal-success').html('Success');
   hideAndClearModal('#create-word-modal');
-  // $('#content').html(showMyWordsTemplate(data));
 };
 
+// used for testing purposes
 const failure = (error) => {
-  console.log('failure due to ' + error);
+  // console.log('failure due to ' + error);
 };
 
 module.exports = {

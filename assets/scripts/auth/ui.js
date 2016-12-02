@@ -30,7 +30,6 @@ const clearForm = (selector) => {
 
 // If sign up is successful, let the user know
 const signUpSuccess = () => {
-  // console.log(data);
   $('.modal-success').text("SUCCESS!");
   hideAndClearModal('#sign-up-modal');
   $('.login-message').text('');
@@ -43,14 +42,12 @@ const signInSuccess = (data) => {
   toggleHideShow(['#hide-myaccount', '.sign-in-form', '#hide-signup']);
   clearForm('.sign-in-form');
   $('#content').html(showDifficultyTemplate());
-  // console.log(data);
 };
 
 // If user successfully changes their password, let user know
 const changePasswordSuccess = () => {
   $('.modal-success').text("SUCCESS!");
   hideAndClearModal('#change-password-modal');
-  // console.log(data);
 };
 
 // If sign out is successful, let user know

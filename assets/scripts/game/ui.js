@@ -6,6 +6,8 @@ const showWinTemplate = require('../templates/win-game.handlebars');
 const showLoseTemplate = require('../templates/lose-game.handlebars');
 const showDifficultyTemplate = require('../templates/choose-difficulty.handlebars');
 
+// Hides and clears modals after a certain period of time
+// Called from below functions
 const hideAndClearModal = (modal) => {
   setTimeout(function() {
     $(modal).modal('hide'); }, 1000);
@@ -16,7 +18,6 @@ const hideAndClearModal = (modal) => {
 };
 
 // START GUESS FUNCTIONS
-
 // check turn count
 const checkTurnCount = () => {
   if (store.turnCount > 1) {
@@ -46,11 +47,10 @@ const guessMade = (guess) => {
     return true;
   }
 };
-
 //END GUESS FUNCTIONS
 
-// START GET WORD FUNCTIONS
 
+// START GET WORD FUNCTIONS
 // Scramble the word that's pulled back from the API
 // Uses Fisher-Yates shuffle
 const scrambleWord = (word) => {
@@ -81,6 +81,9 @@ const scramble = (word) => {
   return scrambled;
 };
 
+// when a word is grabbed from the API, reset the turn counter nad either
+// scramble the word or let user know they've completed all levels from that
+// tier already
 const getWordSuccess = (data) => {
   store.turnCount = 3;
   if (data.word.id === '') {
@@ -95,15 +98,17 @@ const getWordSuccess = (data) => {
 
 
 // START CHOOSE NEW DIFFICULTY FUNCTIONS
+// display the handlebars template that allows a user to select a new
+// difficulty
 const chooseNewDifficulty = () => {
   $('#content').html(showDifficultyTemplate());
-  // store.turnCount = 3;
 };
 // END CHOOSE NEW DIFFICULTY FUNCTIONS
 
 // START CREATE COMPLETED WORDS FUNCTIONS
+// just used for testing
 const createCompletedWordSuccess = () => {
-  console.log('successfully created a word');
+  // console.log('successfully created a word');
 };
 // END CREATE COMPLETED WORDS FUNCTIONS
 
@@ -112,8 +117,9 @@ const deleteCompletedWordsSuccess = () => {
   hideAndClearModal('#reset-game-modal');
 };
 
+// just used for testing purposes
 const failure = (error) => {
-  console.log('failure due to ' + error);
+  // console.log('failure due to ' + error);
 };
 
 module.exports = {

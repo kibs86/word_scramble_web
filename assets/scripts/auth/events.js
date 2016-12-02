@@ -9,6 +9,7 @@ const myWords = require('../my-words/events.js');
 
 // Allows a new user to sign up
 // Make sure their password and password confirmation are the same.
+// Logs user in on successful sign up as well
 const onSignUp = function (event) {
   event.preventDefault();
   let data = getFormFields(this);

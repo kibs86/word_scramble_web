@@ -11,18 +11,18 @@
 <div class="display-my-words">
   <table class="my-words-table">
       <tr>
-        <th> ID </th>
+        <!-- <th> ID </th> -->
         <th> Word </th>
         <th> Difficulty </th>
-        <th> Owner </th>
+        <!-- <th> Owner </th> -->
         <th> Manage </th>
       </tr>
       {{#each words as |word|}}
       <tr>
-        <td> {{word.id}} </td>
+        <!-- <td> {{word.id}} </td> -->
         <td> {{word.word}} </td>
         <td> {{word.difficulty}} </td>
-        <td> {{word.owner_id}} </td>
+        <!-- <td> {{word.owner_id}} </td> -->
         <td>
           <button type="button" class="btn-sm btn-defaults update-word" data-toggle="modal" data-target="#update-word-modal" data-word-id= {{word.id}}>
             Edit

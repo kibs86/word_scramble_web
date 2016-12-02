@@ -3,6 +3,7 @@
 const config = require('../config.js');
 const store = require('../store.js');
 
+// Ajax call to get a full list of words owned by current user
 const myWordsIndex = function () {
   return $.ajax({
     url: config.host + '/words/?restrict=true',
@@ -13,6 +14,7 @@ const myWordsIndex = function () {
   });
 };
 
+// Ajax call to get a full list of words created by all users
 const wordsIndex = function () {
   return $.ajax({
     url: config.host + '/words',
@@ -20,6 +22,7 @@ const wordsIndex = function () {
   });
 };
 
+// Ajax call to allow user to update one of the words they've created
 const updateWord = function (data) {
   return $.ajax({
     url: config.host + '/words/' + store.updateId,
@@ -31,6 +34,7 @@ const updateWord = function (data) {
   });
 };
 
+// Ajax call to allow user to create a new word
 const createWord = function (data) {
   return $.ajax({
     url: config.host + '/words',
