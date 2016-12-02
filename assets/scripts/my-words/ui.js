@@ -17,6 +17,7 @@ const hideAndClearModal = (modal) => {
 // shows the handlebars template for displaying words owned by current user
 const displayMyWords = (data) => {
   $('#content').html(showMyWordsTemplate(data));
+  // console.log('end of display my words');
 };
 
 // when full list of words (owned by all users) is retrieved from API, save
@@ -26,6 +27,7 @@ const wordsIndexSuccess = (data) => {
   for (let i = 0; i < data.words.length; i++) {
     store.allWords.push(data.words[i].word);
   }
+  // console.log('end of words index success');
 };
 
 // when a word is successfully updated, hide/clear the modal and show updated
@@ -38,9 +40,10 @@ const updateWordSuccess = (data) => {
 
 // when a word is successfully created, hide/clear the modal and show updated
 // list of users words
-const createWordSuccess = (data) => {
+const createWordSuccess = () => {
   $('.modal-success').html('Success');
   hideAndClearModal('#create-word-modal');
+  // console.log('end of create word success');
 };
 
 // used for testing purposes

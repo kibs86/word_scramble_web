@@ -9,7 +9,7 @@ const store = require('../store.js');
 const onFindId = function (event) {
   event.preventDefault();
   store.updateId = $(this).attr('data-word-id');
-  console.log(store.updateId);
+  // console.log(store.updateId);
 };
 
 // finds the difficulty of the word being created or updated
@@ -39,6 +39,7 @@ const onUpdateWord = function (newWord) {
 // when a user creates a word, find the difficulty of the word and make
 // the ajax call
 const onCreateWord = function (newWord) {
+  // console.log('start of create new word');
   let newDifficulty = getDifficulty(newWord);
   let data = { word: { word: newWord, difficulty: newDifficulty } };
   api.createWord(data)
@@ -53,6 +54,7 @@ const onCreateWord = function (newWord) {
 
 // checks if a word already exists
 const checkWordExistence = function (newWord, type) {
+  // console.log('beginning of check word existence');
   api.wordsIndex()
     .then(ui.wordsIndexSuccess)
     .then(function() {
@@ -69,7 +71,7 @@ const checkWordExistence = function (newWord, type) {
     .catch(ui.failure);
 };
 
-// when a user submits a word to be updated, find hte new word and make sure
+// when a user submits a word to be updated, find the new word and make sure
 // it hasn't been created already
 const onSubmitUpdate = function (event) {
   event.preventDefault();
@@ -78,13 +80,14 @@ const onSubmitUpdate = function (event) {
   checkWordExistence(newWord, type);
 };
 
-// when a user submits a word to be created, find hte new word and make sure
+// when a user submits a word to be created, find the new word and make sure
 // it hasn't been created already
 const onSubmitCreate = function (event) {
   event.preventDefault();
   let newWord = getFormFields(this).word;
   let type = 'create';
   checkWordExistence(newWord, type);
+  // console.log('end of on submit create');
 };
 
 // when a user clicks to see their words, make the api call to retrieve all
