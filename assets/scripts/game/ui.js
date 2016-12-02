@@ -6,6 +6,15 @@ const showWinTemplate = require('../templates/win-game.handlebars');
 const showLoseTemplate = require('../templates/lose-game.handlebars');
 const showDifficultyTemplate = require('../templates/choose-difficulty.handlebars');
 
+const hideAndClearModal = (modal) => {
+  setTimeout(function() {
+    $(modal).modal('hide'); }, 1000);
+    $(modal).on('hidden.bs.modal', function () {
+      $(this).find("input,textarea,select").val('').end();
+      $('.modal-success').text('');
+    });
+};
+
 // START GUESS FUNCTIONS
 
 // check turn count
@@ -80,6 +89,7 @@ const getWordSuccess = (data) => {
     store.scrambled = scramble(store.word.word.toUpperCase());
     $('#content').html(showGameTemplate(store));
   }
+  // console.log(data);
 };
 // END GET WORD FUNCTIONS
 
@@ -93,9 +103,14 @@ const playAgain = () => {
 
 // START CREATE COMPLETED WORDS FUNCTIONS
 const createCompletedWordSuccess = () => {
-  console.log('successfully created a completed word');
+  console.log('successfully created a word');
 };
 // END CREATE COMPLETED WORDS FUNCTIONS
+
+const deleteCompletedWordsSuccess = () => {
+  $('.modal-success').html('Success');
+  hideAndClearModal('#reset-game-modal');
+};
 
 const failure = (error) => {
   console.log('failure due to ' + error);
@@ -106,5 +121,6 @@ module.exports = {
   getWordSuccess,
   playAgain,
   createCompletedWordSuccess,
+  deleteCompletedWordsSuccess,
   failure,
 };

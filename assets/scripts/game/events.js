@@ -7,7 +7,8 @@ const myWords = require('../my-words/events.js');
 const store = require('../store.js');
 
 const createCompletedWordData = () => {
-  return { completed_word: { user_id: store.user.id, word_id: store.word.id }};
+  //return { completed_word: { user_id: store.user.id, word_id: store.word.id }};
+  return { completed_word: { word_id: store.word.id }};
 };
 
 const onPlayAgain = function (event) {
@@ -23,7 +24,6 @@ const onMakeGuess = function (event) {
   let data = getFormFields(this);
   if (ui.guessMade(data.guess) === true) {
     let data = createCompletedWordData();
-    console.log(data);
     api.createCompletedWord(data)
        .then(ui.createCompletedWordSuccess)
        .catch(ui.failure);
@@ -43,8 +43,16 @@ const onChooseDifficulty = function (event) {
     .catch(ui.failure)
 };
 
+const onResetGame = function (event) {
+  event.preventDefault();
+  api.deleteCompletedWords()
+    .then(ui.deleteCompletedWordsSuccess)
+    .catch(ui.failure)
+};
+
 const addHandlers = () => {
   $('.play-again-button').on('click', onPlayAgain);
+  $('.reset-game-form').on('submit', onResetGame);
 };
 
 module.exports = {
