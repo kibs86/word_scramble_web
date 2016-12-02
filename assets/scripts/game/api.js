@@ -27,7 +27,7 @@ const createCompletedWord = function (data) {
 
 const deleteCompletedWords = function (){
   return $.ajax({
-    url: config.host + '/completed_words/1',
+    url: config.host + '/completed_words/destroy_all',
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token,

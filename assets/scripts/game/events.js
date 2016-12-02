@@ -40,14 +40,14 @@ const onChooseDifficulty = function (event) {
     .then(function() {
       $('.guess-form').on('submit', onMakeGuess);
     })
-    .catch(ui.failure)
+    .catch(ui.failure);
 };
 
 const onResetGame = function (event) {
   event.preventDefault();
   api.deleteCompletedWords()
     .then(ui.deleteCompletedWordsSuccess)
-    .catch(ui.failure)
+    .catch(ui.failure);
 };
 
 const addHandlers = () => {
