@@ -41,8 +41,6 @@ const onCreateWord = function (newWord) {
          .then(ui.displayMyWords)
          .then(function() {
            $('.update-word').on('click', onFindId);
-           $('.update-word-form').on('submit', onSubmitUpdate);
-           $('.create-word-form').on('submit', onSubmitCreate);
          }))
     .catch(ui.failure);
 };
