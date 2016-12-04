@@ -105,8 +105,6 @@ const onClickMyWords = function (event) {
      .then(ui.displayMyWords)
      .then(function() {
        $('.update-word').on('click', onFindId);
-       $('.update-word-form').on('submit', onSubmitUpdate);
-       $('.create-word-form').on('submit', onSubmitCreate);
        $('.refresh-words-button').on('click', onRefreshWords);
        $('#hide-play-game').show();
        $('#hide-my-words').hide();
@@ -115,8 +113,9 @@ const onClickMyWords = function (event) {
 };
 
 const addHandlers = () => {
-  // $('.refresh-words-button').on('click', onRefreshWords);
   $('.my-words-nav-button').on('click', onClickMyWords);
+  $('.update-word-form').on('submit', onSubmitUpdate);
+  $('.create-word-form').on('submit', onSubmitCreate);
 };
 
 module.exports = {
