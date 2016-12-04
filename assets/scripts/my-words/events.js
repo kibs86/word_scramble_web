@@ -44,12 +44,18 @@ const onCreateWord = function (newWord) {
   let data = { word: { word: newWord, difficulty: newDifficulty } };
   api.createWord(data)
     .then(ui.createWordSuccess)
-    .then(api.myWordsIndex()
-         .then(ui.displayMyWords)
-         .then(function() {
-           $('.update-word').on('click', onFindId);
-         }))
     .catch(ui.failure);
+};
+
+// when a user clicks to refresh words, refresh them
+const onRefreshWords = function (event) {
+  event.preventDefault();
+  api.myWordsIndex()
+       .then(ui.displayMyWords)
+       .then(function() {
+         $('.update-word').on('click', onFindId);
+         $('.refresh-words-button').on('click', onRefreshWords);
+       });
 };
 
 // checks if a word already exists
@@ -94,18 +100,26 @@ const onSubmitCreate = function (event) {
 // words owned by them
 const onClickMyWords = function (event) {
   event.preventDefault();
+  // console.log('clicked my words');
   api.myWordsIndex()
      .then(ui.displayMyWords)
      .then(function() {
        $('.update-word').on('click', onFindId);
        $('.update-word-form').on('submit', onSubmitUpdate);
        $('.create-word-form').on('submit', onSubmitCreate);
+       $('.refresh-words-button').on('click', onRefreshWords);
        $('#hide-play-game').show();
+       $('#hide-my-words').hide();
      })
      .catch(ui.failure);
 };
 
+const addHandlers = () => {
+  // $('.refresh-words-button').on('click', onRefreshWords);
+  $('.my-words-nav-button').on('click', onClickMyWords);
+};
+
 module.exports = {
-  // addHandlers,
+  addHandlers,
   onClickMyWords,
 };

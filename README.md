@@ -1,26 +1,16 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Word Scramble Project
 
-# browser-template
+This is a Word Scramble game.  Users can choose between Easy, Medium and Hard words and attempt to unscramble them.  They can also create and update their own words.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+## Links
 
-## Dependencies
+The app is deployed here:<br>
+https://kibs86.github.io/word_scramble_web/
 
-Install with `npm install`.
+The back-end repo can be found here:<br>
+https://github.com/kibs86/word-scramble-api
 
--   [Webpack](https://webpack.github.io)
--   [Bootstrap](http://getbootstrap.com)
--   [Handlebars.js](http://handlebarsjs.com)
-
-At the beginning of each cohort, update the versions in
-[`package.json`](package.json) by replace all versions with a glob (`*`) and
-running `npm update --save && npm update --save-dev`. You may wish to test these
-changes by deleting the `node_modules` directory and running `npm install`.
-Fix any conflicts.
-
-## Installation
+## Description
 
 1.  [Download](../../archive/master.zip) this template.
 1.  Unzip and rename the template directory.
