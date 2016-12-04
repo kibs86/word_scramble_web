@@ -20,7 +20,7 @@ const onSignUp = function (event) {
          .then(ui.signInSuccess)
          .then(function() {
             $('.diff-button').on('click', game.onChooseDifficulty);
-            $('.my-words-button').on('click', myWords.onClickMyWords);
+            $('.my-words-diff-button').on('click', myWords.onClickMyWords);
           })
          .catch(ui.signInFailure));
   } else {
@@ -37,7 +37,7 @@ const onSignIn = function (event) {
      .then(ui.signInSuccess)
      .then(function() {
         $('.diff-button').on('click', game.onChooseDifficulty);
-        $('.my-words-button').on('click', myWords.onClickMyWords);
+        $('.my-words-diff-button').on('click', myWords.onClickMyWords);
       })
      .catch(ui.signInFailure);
 };

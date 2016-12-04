@@ -16,8 +16,9 @@ const onChooseNewDifficulty = function (event) {
   event.preventDefault();
   ui.chooseNewDifficulty();
   $('.diff-button').on('click', onChooseDifficulty);
-  $('.my-words-button').on('click', myWords.onClickMyWords);
+  $('.my-words-diff-button').on('click', myWords.onClickMyWords);
   $('#hide-play-game').hide();
+  $('#hide-my-words').hide();
 };
 
 // when a user makes a guess, check to see if they're correct
@@ -39,6 +40,7 @@ const onMakeGuess = function (event) {
 // give a user another word of their selected difficulty tier
 const onNextWord = function (event) {
   event.preventDefault();
+  $('#hide-my-words').hide();
   api.getWord()
     .then(ui.getWordSuccess)
     .then(function() {

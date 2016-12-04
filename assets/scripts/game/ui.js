@@ -26,6 +26,7 @@ const checkTurnCount = () => {
   } else {
     console.log("Sorry, you've reached max guesses.");
     $('#content').html(showLoseTemplate());
+    $('#hide-my-words').show();
   }
 };
 
@@ -34,6 +35,7 @@ const checkMatch = (guess) => {
   if (guess.toUpperCase() === store.word.word.toUpperCase()) {
     // console.log('you guessed correctly');
     $('#content').html(showWinTemplate(store.word.word.toUpperCase()));
+    $('#hide-my-words').show();
     return true;
   } else {
     checkTurnCount();
