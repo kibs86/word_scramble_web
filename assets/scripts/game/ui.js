@@ -24,7 +24,7 @@ const checkTurnCount = () => {
     store.turnCount--;
     $('#content').html(showGameTemplate(store));
   } else {
-    console.log("Sorry, you've reached max guesses.");
+    // console.log("Sorry, you've reached max guesses.");
     $('#content').html(showLoseTemplate());
     $('#hide-my-words').show();
   }

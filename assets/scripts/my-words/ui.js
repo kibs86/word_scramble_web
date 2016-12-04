@@ -43,7 +43,7 @@ const updateWordSuccess = (data) => {
 const createWordSuccess = () => {
   $('.modal-success').html('Success');
   hideAndClearModal('#create-word-modal');
-  console.log('end of create word success');
+  // console.log('end of create word success');
 };
 
 // used for testing purposes
