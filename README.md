@@ -8,6 +8,9 @@ https://kibs86.github.io/word_scramble_web/
 The back-end repo can be found here:<br>
 https://github.com/kibs86/word-scramble-api
 
+The back-end deployed URL is:<br>
+https://guarded-island-79443.herokuapp.com/
+
 ## Description
 
 This is a Word Scramble game.  Users can choose between Easy, Medium and Hard difficulty tiers and attempt to unscramble words from each.  They're given three attempts to unscramble a word.  If they succeed, the word is marked as completed so they won't see it again.  If they fail, it will come up again at a future point.
